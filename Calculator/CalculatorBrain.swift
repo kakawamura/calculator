@@ -10,10 +10,24 @@ import Foundation
 
 class CalculatorBrain {
     
-    private enum Op {
+    // Printable is a protocol
+    private enum Op: Printable {
         case Operand(Double)
         case UnaryOperation(String, Double -> Double)
         case BinaryOperation(String, (Double, Double) -> Double)
+        
+        var description: String {
+            get {
+                switch self {
+                case .Operand(let operand):
+                    return "\(operand)"
+                case .UnaryOperation(let symbol, _):
+                    return symbol
+                case .BinaryOperation(let symbol, _):
+                    return symbol
+                }
+            }
+        }
     }
     
     // array
@@ -24,11 +38,14 @@ class CalculatorBrain {
     
     // initializer
     init() {
-        knownOps["×"] = Op.BinaryOperation("×", *)
-        knownOps["÷"] = Op.BinaryOperation("÷") { $1 / $0 }
-        knownOps["+"] = Op.BinaryOperation("+", +)
-        knownOps["−"] = Op.BinaryOperation("−") { $1 - $1 }
-        knownOps["√"] = Op.UnaryOperation("√", sqrt)
+        func learnOp(op: Op) {
+            knownOps[op.description] = op
+        }
+        learnOp(Op.BinaryOperation("×", *))
+        learnOp(Op.BinaryOperation("÷") { $1 / $0 })
+        learnOp(Op.BinaryOperation("+", +))
+        learnOp(Op.BinaryOperation("−") { $1 - $1 })
+        learnOp(Op.UnaryOperation("√", sqrt))
     }
     
     // array and dictionary are structs 
@@ -60,19 +77,24 @@ class CalculatorBrain {
         return (nil, ops)
     }
     
-    // Can't evalute if there is not enough operand
+    // Can't evalute if there is not enough operand so it returns an optional
     func evaluate() -> Double? {
         let (result, remainder) = evaluate(opStack)
+        println("\(opStack) = \(result) with \(remainder) left over")
         return result
     }
     
-    func pushOperand(operand: Double) {
+    func pushOperand(operand: Double) -> Double? {
         opStack.append(Op.Operand(operand))
+        
+        return evaluate()
     }
     
-    func performOperation(symbol: String) {
+    func performOperation(symbol: String) -> Double? {
         if let operation = knownOps[symbol] {
             opStack.append(operation)
         }
+        
+        return evaluate()
     }
 }
