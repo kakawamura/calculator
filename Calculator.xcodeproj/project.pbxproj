@@ -13,6 +13,7 @@
 		C855F1C61BBCC8A2000511F0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C855F1C51BBCC8A2000511F0 /* Images.xcassets */; };
 		C855F1C91BBCC8A2000511F0 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C855F1C71BBCC8A2000511F0 /* LaunchScreen.xib */; };
 		C855F1D51BBCC8A2000511F0 /* CalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C855F1D41BBCC8A2000511F0 /* CalculatorTests.swift */; };
+		C855F1DF1BBCC928000511F0 /* CalculatorBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = C855F1DE1BBCC928000511F0 /* CalculatorBrain.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		C855F1CE1BBCC8A2000511F0 /* CalculatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CalculatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C855F1D31BBCC8A2000511F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C855F1D41BBCC8A2000511F0 /* CalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorTests.swift; sourceTree = "<group>"; };
+		C855F1DE1BBCC928000511F0 /* CalculatorBrain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorBrain.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 			children = (
 				C855F1BE1BBCC8A2000511F0 /* AppDelegate.swift */,
 				C855F1C01BBCC8A2000511F0 /* ViewController.swift */,
+				C855F1DE1BBCC928000511F0 /* CalculatorBrain.swift */,
 				C855F1C21BBCC8A2000511F0 /* Main.storyboard */,
 				C855F1C51BBCC8A2000511F0 /* Images.xcassets */,
 				C855F1C71BBCC8A2000511F0 /* LaunchScreen.xib */,
@@ -212,6 +215,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C855F1DF1BBCC928000511F0 /* CalculatorBrain.swift in Sources */,
 				C855F1C11BBCC8A2000511F0 /* ViewController.swift in Sources */,
 				C855F1BF1BBCC8A2000511F0 /* AppDelegate.swift in Sources */,
 			);
